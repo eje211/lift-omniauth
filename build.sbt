@@ -6,13 +6,15 @@ homepage := Some(url("https://github.com/ghostm/lift-omniauth"))
 
 version := "0.14"
 
-liftVersion <<= liftVersion ?? "2.5.1"
+liftVersion <<= liftVersion ?? "2.6-M3"
 
 liftEdition <<= liftVersion apply { _.substring(0,3) }
 
 name <<= (name, liftEdition) { (n, e) =>  n + "_" + e }
 
-scalaVersion <<= scalaVersion ?? "2.9.1"  // This project's scala version is purposefully set at the lowest common denominator to ensure each version compiles.
+//scalaVersion <<= scalaVersion ?? "2.9.1"  // This project's scala version is purposefully set at the lowest common denominator to ensure each version compiles.
+scalaVersion := "2.10.0"
+
 
 crossScalaVersions := Seq("2.10.4", "2.9.2", "2.9.1-1", "2.9.1") // Excluding "2.11.1" since Lift 2.5.1 isn't built for it
 
